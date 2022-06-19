@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1D3F90285ED404000266A9 /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 7E1D3F8F285ED404000266A9 /* DependencyInjection */; };
 		7EC9990C2848A5BC008D04FD /* HappyTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9990B2848A5BC008D04FD /* HappyTimeApp.swift */; };
 		7EC999102848A5BD008D04FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EC9990F2848A5BD008D04FD /* Assets.xcassets */; };
 		7EC999132848A5BD008D04FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EC999122848A5BD008D04FD /* Preview Assets.xcassets */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E1D3F8A285ED392000266A9 /* DependencyInjection */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DependencyInjection; path = ../Library/DependencyInjection; sourceTree = "<group>"; };
+		7E1D3F8B285ED3A8000266A9 /* DependencyInjection */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DependencyInjection; path = ../Library/DependencyInjection; sourceTree = "<group>"; };
 		7EC999082848A5BC008D04FD /* HappyTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC9990B2848A5BC008D04FD /* HappyTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyTimeApp.swift; sourceTree = "<group>"; };
 		7EC9990F2848A5BD008D04FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1D3F90285ED404000266A9 /* DependencyInjection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,13 +81,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E1D3F89285ED392000266A9 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				7E1D3F8A285ED392000266A9 /* DependencyInjection */,
+				7E1D3F8B285ED3A8000266A9 /* DependencyInjection */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		7E1D3F8E285ED404000266A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7EC998FF2848A5BC008D04FD = {
 			isa = PBXGroup;
 			children = (
+				7E1D3F89285ED392000266A9 /* Packages */,
 				7EC9990A2848A5BC008D04FD /* HappyTime */,
 				7EC9991B2848A5BE008D04FD /* HappyTimeTests */,
 				7EC999252848A5BE008D04FD /* HappyTimeUITests */,
 				7EC999092848A5BC008D04FD /* Products */,
+				7E1D3F8E285ED404000266A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,8 +196,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				7E1D3F8D285ED3F8000266A9 /* PBXTargetDependency */,
 			);
 			name = HappyTime;
+			packageProductDependencies = (
+				7E1D3F8F285ED404000266A9 /* DependencyInjection */,
+			);
 			productName = HappyTime;
 			productReference = 7EC999082848A5BC008D04FD /* HappyTime.app */;
 			productType = "com.apple.product-type.application";
@@ -318,6 +344,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7E1D3F8D285ED3F8000266A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 7E1D3F8C285ED3F8000266A9 /* DependencyInjection */;
+		};
 		7EC9991A2848A5BE008D04FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7EC999072848A5BC008D04FD /* HappyTime */;
@@ -621,6 +651,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7E1D3F8C285ED3F8000266A9 /* DependencyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DependencyInjection;
+		};
+		7E1D3F8F285ED404000266A9 /* DependencyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DependencyInjection;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7EC999002848A5BC008D04FD /* Project object */;
 }
