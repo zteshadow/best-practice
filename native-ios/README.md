@@ -56,7 +56,7 @@ override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: Inde
 ><span style="color:red">问题</span>
 - 无法测试business logic是否正确, 包括:
 ```
-1. 添加时`button`的`enabled`状态是否正确
+1. 添加时button的enabled状态是否正确
 2. 添加时新增的条目是否正确
 3. 是否删除正确的条目
 ...
@@ -73,7 +73,12 @@ override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: Inde
 ## MVP
 
 [源代码](https://github.com/zteshadow/best-practice/tree/main/native-ios/MVP)
+
 ![](./Resource/mvp.png)
+
+`MVP`架构中, 将`View+Controller`组成一个`PassiveView`, `PassiveView`负责转发用户交互事件, 业务逻辑都在`Presenter`中实现, 由`Presenter`负责更新视图.
+
+
 ```swift
 protocol ToDoListView: AnyObject {
     func update(list: [String], title: String)
@@ -136,28 +141,37 @@ self.navigationController?.pushViewController(controller, animated: false)
 
 ![](./Resource/mvvm.png)
 
-```swift
-protocol ViewModel {
-    var greeting: String? { get }
-    func showGreeting() /// for view
-    /// for manually binding
-    var greetingDidChange: (ViewModel) -> Void { set get }
-}
-
+从架构图中也可以看到, `MVVM`架构与`MVP`架构基本相同, 但有以下几点区别
+- 对视图的更新, 在`MVP`中是手动实现的, 而`MVVM`中是自动完成的(用callback, combine, RxSwift技术等)
+- `view model`的设计原则是: 持有`view`中对应的状态, 修改状态 -> 自动更新view
+```
+这点稍微比较隐晦, 比如在Presenter中, 更新todos会同步更新title, 因此Presenter中可以不持有title, 但是设计view model的时候, 一定是将view中需要的状态都保存在view model中.
 ```
 
-><span style="color:red">与MVP的区别</span>
+```swift
+class ToDoListViewModel {
+    @Published var todos: [String] = [] {
+        didSet {
+            title = "TODO - (\(self.todos.count))"
+        }
+    }
+    @Published var title: String = ""
+    @Published var enableAdd: Bool = false
 
--` view`与`view model`之间的数据交互是自动绑定完成的
-> 优点
-- 业务逻辑与view隔离, 容易测试
-- 由controller和view组成的view部分可以复用
+    var text = "" {
+        didSet {
+            if text.count >= 3 {
+                enableAdd = true
+            } else {
+                enableAdd = false
+            }
+        }
+    }
+}
+```
+- `business`和`view`的耦合不同, 如果使用combine来实现`MVVM`中的绑定, 那么这个`view model`是和`view`紧密结合在一起的, 不像`MVP`中`view`与`Presenter`解耦的那么彻底, 更适合复用.
 
-> 绑定的方式
-- 手动(block回调)
-- RxSwift
-- ReactiveCocoa
-- KVO
+- 测试方式也不同, 同上, 如果使用combine来实现`MVVM`中的绑定, 那么一些基本的数据操作逻辑是不用测试的.
 
 ## VIPER
 
