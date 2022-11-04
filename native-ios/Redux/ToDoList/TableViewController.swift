@@ -33,7 +33,7 @@ class TableViewController: UITableViewController {
                 }
 
                 if preState == nil || preState!.text != state.text {
-                    let isItemLengthEnough = state.text.count > 3
+                    let isItemLengthEnough = state.text.count >= 3
                     self.navigationItem.rightBarButtonItem?.isEnabled = isItemLengthEnough
 
                     let inputIndexPath = IndexPath(row: 0, section: Section.input.rawValue)

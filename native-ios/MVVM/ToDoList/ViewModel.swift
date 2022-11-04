@@ -19,7 +19,7 @@ class ToDoListViewModel {
 
     var text = "" {
         didSet {
-            if text.count > 3 {
+            if text.count >= 3 {
                 enableAdd = true
             } else {
                 enableAdd = false

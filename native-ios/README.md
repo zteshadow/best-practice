@@ -36,20 +36,35 @@
 ![](./Resource/todolist.gif)
 
 ## MVC
-[源代码](https://github.com/zteshadow/newlife/tree/master/study/Architect/MVX/MVC)
+[源代码](https://github.com/zteshadow/best-practice/tree/main/native-ios/MVC)
 
 ![](./Resource/mvc.png)
 
 ```swift
-@objc
-func handleTap() {
-    greetingLabel.text = "hello, " + person.firstName + " " + person.lastName
-}
+override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == Section.todos.rawValue else {
+            return
+        }
+        
+        todos.remove(at: indexPath.row)    //更新model
+        title = "TODO - (\(todos.count))"  //更新model
+        tableView.reloadData() //刷新View
+    }
+
 ```
 
 ><span style="color:red">问题</span>
-- 无法测试view中的显示逻辑是否正确
-- View更新与业务逻辑都耦合在一起, 无法复用
+- 无法测试business logic是否正确, 包括:
+```
+1. 添加时`button`的`enabled`状态是否正确
+2. 添加时新增的条目是否正确
+3. 是否删除正确的条目
+...
+```
+- View与business logic耦合在一起, 无法复用
+```
+1. 如果要换个界面展示business, 代码修改, 无法保证business不动只切换UI
+```
 
 > 优点
 - 代码量少, 开发速度快
@@ -57,37 +72,67 @@ func handleTap() {
 
 ## MVP
 
-[源代码](https://github.com/zteshadow/newlife/tree/master/study/Architect/MVX/MVP)
+[源代码](https://github.com/zteshadow/best-practice/tree/main/native-ios/MVP)
 ![](./Resource/mvp.png)
 ```swift
-class GreetingPresenter: GreetPresenter {
-    unowned var view: GreetView
-    let model: Person
+protocol ToDoListView: AnyObject {
+    func update(list: [String], title: String)
+    func enableAdd(_ enable: Bool)
+}
 
-    init(view: GreetView, model: Person) {
-        self.view = view
-        self.model = model
+protocol ToDoListPresenter {
+    func load()
+    func remove(at index: Int)
+    func edit(_ text: String)
+    func add()
+}
+
+class ToDoListPresenterImpl: ToDoListPresenter {
+    unowned var view: ToDoListView
+
+    var todos: [String] = [] {
+        didSet {
+            view.update(list: todos, title: "TODO - (\(self.todos.count))")
+        }
+    }
+    var text = "" {
+        didSet {
+            view.enableAdd(text.count >= 3)
+        }
     }
 
-    func showGreeting() {
-        let message = "hello, " + model.firstName + " " + model.lastName
-        view.showGreeting(message)
+    init(_ view: ToDoListView) {
+        self.view = view
     }
 }
 ```
-><span style="color:red">注意view持有presenter, 而presenter连接unowned view</span>
 
-业务逻辑在presenter中, 很容易通过mock进行测试.
+> Controller和Presenter的绑定:
+```swift
+...
+let controller: TableViewController = UIStoryboard(name: "Table", bundle: nil)
+    .instantiateViewController(withIdentifier: "tableViewController") as! TableViewController
+
+let presenter = ToDoListPresenterImpl(controller)
+controller.presenter = presenter
+
+controller.navigationItem.hidesBackButton = true
+self.navigationController?.pushViewController(controller, animated: false)
+...
+```
+><span style="color:red">注意`view`持有`presenter`, 而`presenter`连接`unowned view`</span>
+
+业务逻辑在`presenter`中, 很容易通过mock view进行测试(代码覆盖率达到`97.8`).
 ![](./Resource/mvp-test.png)
 
 ><span style="color:red">问题</span>
 - 需要手动将数据的变化绑定到view
 > 优点
 - 业务逻辑与view隔离, 容易测试
-- 由controller和view组成的passive view部分可以复用
+- 业务逻辑与view隔离, 容易复用, 如果只修改界面, 换一个`ToDoListView`实现即可.
 
 ## MVVM
-[源代码](https://github.com/zteshadow/newlife/tree/master/study/Architect/MVX/MVVM)
+[源代码](https://github.com/zteshadow/best-practice/tree/main/native-ios/MVVM)
 
 ![](./Resource/mvvm.png)
 

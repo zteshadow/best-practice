@@ -29,7 +29,7 @@ class ToDoListPresenterImpl: ToDoListPresenter {
     }
     var text = "" {
         didSet {
-            view.enableAdd(text.count > 3)
+            view.enableAdd(text.count >= 3)
         }
     }
 
@@ -61,12 +61,11 @@ class ToDoListPresenterImpl: ToDoListPresenter {
     }
 
     func add() {
-        guard text.count > 3 else {
+        guard text.count >= 3 else {
             return
         }
 
         todos.insert(text, at: 0)
         text = ""
-        view.enableAdd(false)
     }
 }

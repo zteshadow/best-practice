@@ -25,10 +25,14 @@ class ToDoListTests: XCTestCase {
         view.updateHandler = { _, _ in
             XCTFail()
         }
-
         presenter.remove(at: 0)
 
+        view.updateHandler = { list, title in
+            XCTAssertEqual(list, ["1", "2"])
+            XCTAssertEqual(title, "TODO - (2)")
+        }
         presenter.todos = ["1", "2"]
+
         view.updateHandler = { list, title in
             XCTAssertEqual(list, ["2"])
             XCTAssertEqual(title, "TODO - (1)")
@@ -36,13 +40,63 @@ class ToDoListTests: XCTestCase {
         presenter.remove(at: 0)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testEdit() {
+        let view = MockView()
+        let presenter = ToDoListPresenterImpl(view)
+
+        view.enableHandler = { enabled in
+            XCTAssertFalse(enabled)
         }
+        presenter.edit("he")
+
+        view.enableHandler = { enabled in
+            XCTAssertTrue(enabled)
+        }
+        presenter.edit("hel")
     }
 
+    func testAdd() {
+        let view = MockView()
+        let presenter = ToDoListPresenterImpl(view)
+
+        view.updateHandler = { _, _ in
+            XCTFail()
+        }
+        presenter.edit("he")
+        presenter.add()
+
+        presenter.edit("hello")
+        view.updateHandler = { list, title in
+            XCTAssertEqual(list, ["hello"])
+            XCTAssertEqual(title, "TODO - (1)")
+        }
+        view.enableHandler = { enabled in
+            XCTAssertFalse(enabled)
+        }
+        presenter.add()
+    }
+
+    func testLoad() {
+        let view = MockView()
+        let presenter = ToDoListPresenterImpl(view)
+
+        let expectation = super.expectation(description: "wait for load")
+        view.enableHandler = { enabled in
+            XCTAssertFalse(enabled)
+        }
+
+        view.updateHandler = { list, title in
+            XCTAssertEqual(list, [
+                "Buy the milk",
+                "Take my dog",
+                "Rent a car"
+            ])
+            XCTAssertEqual(title, "TODO - (3)")
+            expectation.fulfill()
+        }
+        presenter.load()
+        wait(for: [expectation], timeout: 2)
+    }
 }
 
 class MockView: ToDoListView {
