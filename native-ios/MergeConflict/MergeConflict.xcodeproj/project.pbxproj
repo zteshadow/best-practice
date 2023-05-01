@@ -11,6 +11,7 @@
 		81C5DB6329FF695B00E4F291 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5DB6229FF695B00E4F291 /* ContentView.swift */; };
 		81C5DB6529FF695C00E4F291 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C5DB6429FF695C00E4F291 /* Assets.xcassets */; };
 		81C5DB6929FF695C00E4F291 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C5DB6829FF695C00E4F291 /* Preview Assets.xcassets */; };
+		81C5DB7029FF69F700E4F291 /* SwiftUIViewA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5DB6F29FF69F700E4F291 /* SwiftUIViewA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		81C5DB6429FF695C00E4F291 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81C5DB6629FF695C00E4F291 /* MergeConflict.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MergeConflict.entitlements; sourceTree = "<group>"; };
 		81C5DB6829FF695C00E4F291 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		81C5DB6F29FF69F700E4F291 /* SwiftUIViewA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				81C5DB6029FF695B00E4F291 /* MergeConflictApp.swift */,
 				81C5DB6229FF695B00E4F291 /* ContentView.swift */,
+				81C5DB6F29FF69F700E4F291 /* SwiftUIViewA.swift */,
 				81C5DB6429FF695C00E4F291 /* Assets.xcassets */,
 				81C5DB6629FF695C00E4F291 /* MergeConflict.entitlements */,
 				81C5DB6729FF695C00E4F291 /* Preview Content */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81C5DB6329FF695B00E4F291 /* ContentView.swift in Sources */,
+				81C5DB7029FF69F700E4F291 /* SwiftUIViewA.swift in Sources */,
 				81C5DB6129FF695B00E4F291 /* MergeConflictApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
