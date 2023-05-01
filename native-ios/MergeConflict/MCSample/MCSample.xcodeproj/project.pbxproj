@@ -11,6 +11,7 @@
 		813E552A29FF603200B97391 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E552929FF603200B97391 /* ContentView.swift */; };
 		813E552C29FF603300B97391 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813E552B29FF603300B97391 /* Assets.xcassets */; };
 		813E553029FF603300B97391 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813E552F29FF603300B97391 /* Preview Assets.xcassets */; };
+		813E553729FF609B00B97391 /* SwiftUIViewB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813E553629FF609B00B97391 /* SwiftUIViewB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		813E552B29FF603300B97391 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		813E552D29FF603300B97391 /* MCSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCSample.entitlements; sourceTree = "<group>"; };
 		813E552F29FF603300B97391 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		813E553629FF609B00B97391 /* SwiftUIViewB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				813E552729FF603200B97391 /* MCSampleApp.swift */,
 				813E552929FF603200B97391 /* ContentView.swift */,
+				813E553629FF609B00B97391 /* SwiftUIViewB.swift */,
 				813E552B29FF603300B97391 /* Assets.xcassets */,
 				813E552D29FF603300B97391 /* MCSample.entitlements */,
 				813E552E29FF603300B97391 /* Preview Content */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				813E552A29FF603200B97391 /* ContentView.swift in Sources */,
+				813E553729FF609B00B97391 /* SwiftUIViewB.swift in Sources */,
 				813E552829FF603200B97391 /* MCSampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
