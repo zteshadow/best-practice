@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8120CA7329FF797E0013CA6D /* MergeConflictApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8120CA7229FF797E0013CA6D /* MergeConflictApp.swift */; };
-		8120CA7529FF797E0013CA6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8120CA7429FF797E0013CA6D /* ContentView.swift */; };
 		8120CA7729FF797F0013CA6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8120CA7629FF797F0013CA6D /* Assets.xcassets */; };
+		8120CA7529FF797E0013CA6D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8120CA7429FF797E0013CA6D /* ContentView.swift */; };
+		8120CA7329FF797E0013CA6D /* MergeConflictApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8120CA7229FF797E0013CA6D /* MergeConflictApp.swift */; };
 		8120CA7B29FF797F0013CA6D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8120CA7A29FF797F0013CA6D /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8120CA6F29FF797E0013CA6D /* MergeConflict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MergeConflict.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8120CA7229FF797E0013CA6D /* MergeConflictApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeConflictApp.swift; sourceTree = "<group>"; };
-		8120CA7429FF797E0013CA6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8120CA7629FF797F0013CA6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8120CA7429FF797E0013CA6D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8120CA6F29FF797E0013CA6D /* MergeConflict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MergeConflict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8120CA7829FF797F0013CA6D /* MergeConflict.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MergeConflict.entitlements; sourceTree = "<group>"; };
+		8120CA7229FF797E0013CA6D /* MergeConflictApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeConflictApp.swift; sourceTree = "<group>"; };
 		8120CA7A29FF797F0013CA6D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,11 +52,11 @@
 		8120CA7129FF797E0013CA6D /* MergeConflict */ = {
 			isa = PBXGroup;
 			children = (
-				8120CA7229FF797E0013CA6D /* MergeConflictApp.swift */,
-				8120CA7429FF797E0013CA6D /* ContentView.swift */,
-				8120CA7629FF797F0013CA6D /* Assets.xcassets */,
-				8120CA7829FF797F0013CA6D /* MergeConflict.entitlements */,
 				8120CA7929FF797F0013CA6D /* Preview Content */,
+				8120CA7629FF797F0013CA6D /* Assets.xcassets */,
+				8120CA7429FF797E0013CA6D /* ContentView.swift */,
+				8120CA7829FF797F0013CA6D /* MergeConflict.entitlements */,
+				8120CA7229FF797E0013CA6D /* MergeConflictApp.swift */,
 			);
 			path = MergeConflict;
 			sourceTree = "<group>";
@@ -127,8 +127,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8120CA7B29FF797F0013CA6D /* Preview Assets.xcassets in Resources */,
 				8120CA7729FF797F0013CA6D /* Assets.xcassets in Resources */,
+				8120CA7B29FF797F0013CA6D /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

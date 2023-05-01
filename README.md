@@ -41,3 +41,7 @@ We can see here, the root view of tab view follow the MVVM pattern.
 
 ![mvvm](./resource/mvp-mvvm.png)
 
+## 4. How to solve project merge conflict
+
+git config core.hooksPath ./native-ios/githooks
+
